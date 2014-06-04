@@ -3,18 +3,23 @@
 <head>
     <title></title>
     <meta charset="utf-8" />
-    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.dataviz.min.css">
+	<link rel="stylesheet" href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.dataviz.default.min.css">
+	<link rel="stylesheet" href="http://cdn.kendostatic.com/2014.1.416/styles/kendo.mobile.all.min.css">
     <link href="styles/main.css" rel="stylesheet" />
 
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
-    <script src="kendo/js/kendo.mobile.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.1.528/js/kendo.all.min.js"></script>
     
     <script src="scripts/app.js"></script>
 </head>
 <body>
 	<!-- Home View -->
-    <div data-role="view" id="drawer-home" data-layout="mmr-layout" data-title="Market Mood Ring"></div>
+    <div data-role="view" id="drawer-home" data-layout="mmr-layout" data-title="Market Mood Ring">
+    	<div id="example">
+    	</div>
+   </div>
   
     <!-- Favorites View -->
     <div data-role="view" id="drawer-favorites" data-layout="mmr-layout" data-title="Favorites">
@@ -26,6 +31,13 @@
         </ul>
     </div>
 
+    <!-- Bonus View -->
+    <div data-role="view" id="drawer-bonus" data-layout="mmr-layout" data-title="Bonus View">
+    	<div class="demo-section k-content">
+            <div id="chart"></div>
+        </div>
+    </div>
+    
     <!-- Manage View -->
 	<div data-role="view" id="drawer-manage" data-layout="mmr-layout" data-title="Manage Assets"></div>
 
@@ -36,19 +48,20 @@
 	<div data-role="view" id="drawer-account" data-layout="mmr-layout" data-title="Account"></div>
 
     <!-- Main Drawer -->
-    <div data-role="drawer" id="main-drawer" style="width: 270px" data-views="['drawer-home', 'drawer-favorites', 'drawer-manage', 'drawer-settings', 'drawer-account']">
+    <div data-role="drawer" id="main-drawer" style="width: 270px" data-views="['drawer-bonus', 'drawer-home', 'drawer-favorites', 'drawer-manage', 'drawer-settings', 'drawer-account']">
         <ul data-role="listview" data-type="group">
             <li>Assets
                 <ul>
-                    <li data-icon="home"><a href="#drawer-home" data-transition="none">Home</a></li>
-                    <li data-icon="star"><a href="#drawer-favorites" data-transition="none">Favorites</a></li>
-                    <li data-icon="compose"><a href="#drawer-manage" data-transition="none">Manage Assets</a></li>               
+                    <li data-icon="home"><a href="#drawer-home">Home</a></li>
+                    <li data-icon="star"><a href="#drawer-favorites">Favorites</a></li>
+                    <li data-icon="compose"><a href="#drawer-manage">Manage Assets</a></li>
+                    <li data-icon="star"><a href="#drawer-bonus">Bonus</a></li>               
                 </ul>
             </li>
             <li>Account
                 <ul>
-                    <li data-icon="settings"><a href="#drawer-settings" data-transition="none">Settings</a></li>
-                    <li data-icon="off"><a href="#drawer-account" data-transition="none">Log Off</a></li>
+                    <li data-icon="settings"><a href="#drawer-settings">Settings</a></li>
+                    <li data-icon="off"><a href="#drawer-account">Log Off</a></li>
                 </ul>
             </li>
         </ul>
@@ -59,7 +72,7 @@
         <header data-role="header">
             <div data-role="navbar">
                 <a data-role="button" data-rel="drawer" href="#main-drawer" data-icon="drawer-button" data-align="left"></a>
-                <span data-role="view-title"></span>            
+                <span data-role="view-title"></span>
             </div>
         </header>
     </div>
